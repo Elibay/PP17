@@ -1,31 +1,30 @@
-﻿
-using System;
+﻿using System;
 
-namespace Application
+namespace Student
 {
 	class MainClass
 	{
-		// Function check we must check number is prime or not
-		static bool check(int x)
+		public class Student
 		{
-			if (x == 1)
-				return false;
-			for (int i = 2; i * i <= x; ++i)
-				if (x % i == 0)
-					return false;
-			return true;
-		}
-		public static void Main(string[] args)
-		{
-			int n = args.Length;
-			for (int i = 0; i < n; ++i)
+			public string name, surname;
+			public int age;
+			public Student(string name, string surname, int age)
 			{
-				// Convert to int
-				int p = int.Parse(args[i]);
-				if (check(p))
-					// Print this number
-					Console.WriteLine(p);
+				this.name = name;
+				this.surname = surname;
+				this.age = age;
 			}
+			public override string ToString()
+			{
+				return name + " " + surname + " " + age;
+			}
+		}
+		static void Main(string[] args)
+		{
+			Student a = new Student("Aidos", "Nurmash", 21);
+			Student b = new Student("Temirulan", "Mussayev", 22);
+			Console.WriteLine(a);
+			Console.WriteLine(b);
 		}
 	}
 }
