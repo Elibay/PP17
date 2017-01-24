@@ -1,37 +1,45 @@
 ﻿using System;
-using System.IO;
-namespace Student
+
+namespace Program
 {
+	class Cls
+	{
+		static int gcd(int x, int y)
+		{
+			if (x == 0)
+				return y;
+			return gcd(y % x, x);
+		}
+		public int a, b;
+		public Cls(int a, int b)
+		{
+			this.a = a;
+			this.b = b;
+		}
+		// rewrite function ToString 
+		public override string ToString()
+		{
+			return a + "/" + b;
+		}
+		// rewrtite operator +
+		public static Cls operator +(Cls a, Cls b)
+		{
+			Cls p = new Cls(a.a * b.b + a.b * b.a, a.b * b.b);
+			int z = gcd(p.a, p.b);
+			p.a = p.a / z;
+			p.b = p.b / z;
+			return p;
+		}
+	}
 	class MainClass
 	{
-		static bool check(int x)
+		public static void Main(string[] args)
 		{
-			if (x == 1)
-				return false;
-			for (int i = 2; i * i <= x; ++i)
-				if (x % i == 0)
-					return false;
-			return true;
-		}
-		static void MaxMin()
-		{
-			StreamReader sr = new StreamReader(@"/Users/elibay/Documents/input.txt");
-			StreamWriter sw = new StreamWriter(@"/Users/elibay/Documents/output.txt");
-			string[] arr = sr.ReadLine().Split();
-			int x = 999999;
-			foreach (string s in arr)
-			{
-				int p = int.Parse(s);
-				if (p < x && check (p))
-					x = p;
-			}
-			sw.WriteLine(x);
-			sw.Close();
-			sr.Close();
-		}
-		static void Main(string[] args)
-		{
-			MaxMin();
+			Cls a = new Cls(1, 2);
+			Cls b = new Cls(1, 3);
+			Cls c = a + b + b;
+			Console.WriteLine(c);
+			Console.ReadKey();
 		}
 	}
 }
