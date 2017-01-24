@@ -1,30 +1,28 @@
 ﻿using System;
-
+using System.IO;
 namespace Student
 {
 	class MainClass
 	{
-		public class Student
+		static void MaxMin()
 		{
-			public string name, surname;
-			public int age;
-			public Student(string name, string surname, int age)
+			StreamReader sr = new StreamReader(@"/Users/elibay/Documents/input.txt");
+			string[] arr = sr.ReadLine().Split();
+			int x = 9999, y = 0;
+			foreach (string s in arr)
 			{
-				this.name = name;
-				this.surname = surname;
-				this.age = age;
+				int p = int.Parse(s);
+				if (p < x)
+					x = p;
+				if (p > y)
+					y = p;
 			}
-			public override string ToString()
-			{
-				return name + " " + surname + " " + age;
-			}
+			Console.WriteLine(x + " " + y);
+			sr.Close();
 		}
 		static void Main(string[] args)
 		{
-			Student a = new Student("Aidos", "Nurmash", 21);
-			Student b = new Student("Temirulan", "Mussayev", 22);
-			Console.WriteLine(a);
-			Console.WriteLine(b);
+			MaxMin();
 		}
 	}
 }
