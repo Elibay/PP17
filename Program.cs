@@ -1,45 +1,37 @@
 ﻿using System;
-
-namespace Program
+using System.IO;
+namespace Student
 {
-	class Cls
-	{
-		static int gcd(int x, int y)
-		{
-			if (x == 0)
-				return y;
-			return gcd(y % x, x);
-		}
-		public int a, b;
-		public Cls(int a, int b)
-		{
-			this.a = a;
-			this.b = b;
-		}
-		// rewrite function ToString 
-		public override string ToString()
-		{
-			return a + "/" + b;
-		}
-		// rewrtite operator +
-		public static Cls operator +(Cls a, Cls b)
-		{
-			Cls p = new Cls(a.a * b.b + a.b * b.a, a.b * b.b);
-			int z = gcd(p.a, p.b);
-			p.a = p.a / z;
-			p.b = p.b / z;
-			return p;
-		}
-	}
 	class MainClass
 	{
-		public static void Main(string[] args)
+		static void emptySpace(int level)
 		{
-			Cls a = new Cls(1, 2);
-			Cls b = new Cls(1, 3);
-			Cls c = a + b + b;
-			Console.WriteLine(c);
-			Console.ReadKey();
+			for (int i = 0; i < level; ++i)
+				Console.Write("-");
+			Console.Write("> ");
+		}
+		static void Rec(string path, int level)
+		{
+			if (level > 3)
+				return;
+			DirectoryInfo directory = new DirectoryInfo(path);
+			FileInfo[] files = directory.GetFiles();
+			DirectoryInfo[] directories = directory.GetDirectories();
+			foreach (FileInfo file in files)
+			{
+				emptySpace(level);
+				Console.WriteLine(file.Name);
+			}
+			foreach (DirectoryInfo dInfo in directories)
+			{
+				emptySpace(level);
+				Console.WriteLine(dInfo.Name);
+				Rec (dInfo.FullName, level + 1);
+			}
+		}
+		static void Main(string[] args)
+		{
+			Rec (@"/Users/elibay/Projects", 0);
 		}
 	}
 }
