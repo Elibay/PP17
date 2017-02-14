@@ -37,6 +37,8 @@
     <Compile Include="Point.cs" />
     <Compile Include="WSSnake.cs" />
     <Compile Include="Food.cs" />
+    <Compile Include="Snake2.cs" />
+    <Compile Include="Snake.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

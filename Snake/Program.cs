@@ -5,44 +5,6 @@ using System.IO;
 
 namespace Snake
 {
-	class Snake
-	{
-		public List<Point> body;
-		public char sign = '*';
-		public ConsoleColor color;
-		public Snake()
-		{
-			body = new List<Point>();
-			body.Add(new Point(10, 10));
-			color = ConsoleColor.Yellow;
-		}
-		public void Move(int dx, int dy)
-		{
-			for (int i = body.Count - 1; i > 0; --i)
-			{
-				body[i].x = body[i - 1].x;
-				body[i].y = body[i - 1].y;
-			}
-			body[0].x += dx;
-			body[0].y += dy;
-			if (body[0].x >= 19 || body[0].x < 1 || body[0].y >= 19 || body[0].y < 1)
-			{
-				Console.Clear();
-				Console.SetCursorPosition(10, 10);
-				Console.WriteLine("GAME OVER");
-				Environment.Exit(0);
-			}
-		}
-		public void Draw()
-		{
-			Console.ForegroundColor = color;
-			foreach (Point p in body)
-			{
-				Console.SetCursorPosition(p.x, p.y);
-				Console.Write(sign);
-			}
-		}
-	}
 	class MainClass
 	{
 		public static void Main(string[] args)
@@ -50,6 +12,10 @@ namespace Snake
 			Wall wall = new Wall();
 			Snake snake = new Snake();
 			Food food = new Food();
+			while (snake.u[food.x, food.y] == 1)
+				food = new Food();
+			int cnt = 1;
+			int Max = 1;
 			while (true)
 			{
 				ConsoleKeyInfo pressed = Console.ReadKey();
@@ -67,13 +33,54 @@ namespace Snake
 				{
 					snake.body.Add(new Point(0, 0));
 					food = new Food();
+					while (snake.u[food.x, food.y] == 1)
+						food = new Food();
+					++cnt;
+				}
+				if (Max < cnt)
+					Max = cnt;
+				if (snake.GM == 1)
+				{
+					Console.Clear();
+					Console.SetCursorPosition(10, 5);
+					Console.WriteLine("GAME OVER");
+
+					Console.SetCursorPosition(10, 6);
+					Console.Write("Your score: ");
+					Console.WriteLine(cnt);
+					Console.SetCursorPosition(10, 7);
+					Console.Write("Max score: ");
+					Console.WriteLine(Max);
+					Console.SetCursorPosition(10, 8);
+					Console.WriteLine ("Repeate?");
+					Console.SetCursorPosition(10, 9);
+					Console.WriteLine("Y || N");
+					while (true)
+					{
+						ConsoleKeyInfo p = Console.ReadKey();
+						if (p.Key == ConsoleKey.Y)
+							break;
+						if (p.Key == ConsoleKey.N)
+							Environment.Exit(0);
+					}
+					snake = new Snake ();
+					food = new Food();
+					while (snake.u[food.x, food.y] == 1)
+						food = new Food();
+					cnt = 1;
 				}
 				Console.Clear();
 				wall.Draw();
 				snake.Draw();
 				food.Draw();
+				Console.SetCursorPosition(40, 10);
+				Console.Write("Curent score: ");
+				Console.WriteLine(cnt);
+				Console.SetCursorPosition(40, 11);
+				Console.Write("Max score: ");
+				Console.WriteLine(Max);
+				Console.SetCursorPosition (50, 20);
 			}
-
 		}
 	}
 }
