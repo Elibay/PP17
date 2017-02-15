@@ -9,10 +9,14 @@ namespace Snake
 		List<Point> body;
 		public char sign = 'o';
 		public ConsoleColor color = ConsoleColor.Red;
-		public Wall()
+		public int[,] u = new int[50, 50];
+		public Wall(string FileName)
 		{
+			for (int i = 0; i < 50; ++i)
+				for (int j = 0; j < 50; ++j)
+					u[i, j] = 0;
 			body = new List<Point> ();
-			StreamReader sr = new StreamReader("wall.txt");
+			StreamReader sr = new StreamReader(FileName);
 			int n = int.Parse(sr.ReadLine());
 			for (int i = 0; i < n; ++i)
 			{
@@ -22,8 +26,14 @@ namespace Snake
 				{
 					//Console.WriteLine(s[j]);
 					if (s[j] == '*')
+					{
 						body.Add(new Point(j, i));
+					}
 				}
+			}
+			foreach (Point p in body)
+			{
+				u[p.x, p.y] = 1;
 			}
 		}
 		public void Draw()

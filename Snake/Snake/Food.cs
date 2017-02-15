@@ -11,10 +11,6 @@ namespace Snake
 			int mod = 19;
 			x = rnd.Next(mod);
 			y = rnd.Next(mod);
-			while (x == 0 || x == 19)
-				x = rnd.Next(mod);
-			while (y == 0 || y == 19)
-				y = rnd.Next(mod);
 		}
 		public void Draw()
 		{
