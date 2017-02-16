@@ -7,6 +7,7 @@ namespace Snake
 {
 	class MainClass
 	{
+		// Moving function 
 		public static void Move(ConsoleKeyInfo pressed, Snake snake)
 		{
 			if (pressed.Key == ConsoleKey.UpArrow)
@@ -18,6 +19,7 @@ namespace Snake
 			if (pressed.Key == ConsoleKey.LeftArrow)
 				snake.Move(-1, 0);
 		}
+		// Game Over function 
 		public static void Game_Over(int cnt, int Max)
 		{
 			Console.Clear();
@@ -45,6 +47,9 @@ namespace Snake
 		}
 		public static void Main(string[] args)
 		{
+			Console.SetCursorPosition(10, 10);
+			Console.WriteLine("Welcome BRO");
+			Console.WriteLine("      -----> SNAKE <----");
 			Wall wall = new Wall("lvl1.txt");
 			Snake snake = new Snake();
 			Food food = new Food();
@@ -55,19 +60,14 @@ namespace Snake
 			int lvl = 1;
 			while (true)
 			{
+				// reading key
 				ConsoleKeyInfo pressed = Console.ReadKey();
 				Move(pressed, snake);
 				if (pressed.Key == ConsoleKey.Escape)
 					break;
-				if (food.x == snake.body[0].x && food.y == snake.body[0].y)
-				{
-					snake.body.Add(new Point(0, 0));
-					food = new Food();
-					while (snake.u[food.x, food.y] == 1 || wall.u[food.x, food.y] == 1)
-						food = new Food();
-					++cnt;
-					++cnt2;
-				}
+				// Checking Game Over or not
+				if (wall.u[snake.body[0].x, snake.body[0].y] == 1)
+					snake.GM = 1;
 				if (snake.GM == 1)
 				{
 					Game_Over(cnt, Max);
@@ -78,6 +78,7 @@ namespace Snake
 					cnt = 1;
 					cnt2 = 1;
 				}
+				// adding points 
 				else if (food.x == snake.body[0].x && food.y == snake.body[0].y)
 				{
 					snake.body.Add(new Point(0, 0));
@@ -89,14 +90,15 @@ namespace Snake
 				}
 				if (Max < cnt)
 					Max = cnt;
-				if (cnt2 == 5)
+				if (cnt2 == 10)
 				{
+					// changing levels
 					if (lvl == 1)
 						wall = new Wall("lvl2.txt");
 					else if (lvl == 2)
 						wall = new Wall("lvl3.txt");
 					lvl++;
-					if (lvl != 4)
+					if (lvl < 4)
 					{
 						snake = new Snake();
 						food = new Food();
@@ -110,6 +112,7 @@ namespace Snake
 					}
 					cnt2 = 1;
 				}
+				// -> Print Snake
 				Console.Clear();
 				wall.Draw();
 				snake.Draw();
@@ -121,6 +124,7 @@ namespace Snake
 				Console.Write("Max score: ");
 				Console.WriteLine(Max);
 				Console.SetCursorPosition (50, 20);
+				// <- 
 			}
 		}
 	}

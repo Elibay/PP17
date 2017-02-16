@@ -30,9 +30,16 @@ namespace Snake
 			}
 			body[0].x += dx;
 			body[0].y += dy;
+			if (body[0].x >= 20)
+				body[0].x = 0;
+			if (body[0].y >= 20)
+				body[0].y = 0;
+
+			if (body[0].x < 0)
+				body[0].x = 19;
+			if (body[0].y < 0)
+				body[0].y = 19;
 			if (u[body[0].x, body[0].y] == 1)
-				GM = 1;
-			if (body[0].x >= 19 || body[0].x < 1 || body[0].y >= 19 || body[0].y < 1)
 				GM = 1;
 			u[body[0].x, body[0].y] = 1;
 		}
