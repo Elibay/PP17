@@ -38,6 +38,7 @@
     <Compile Include="WSSnake.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Snake.cs" />
+    <Compile Include="Fucntions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

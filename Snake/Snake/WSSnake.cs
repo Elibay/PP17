@@ -1,17 +1,15 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
-using System.Text;
 namespace Snake
 {
-	public class Wall
+	public class Wall : Fucntions
 	{
-		List<Point> body;
-		public char sign = 'o';
-		public ConsoleColor color = ConsoleColor.Red;
 		public int[,] u = new int[50, 50];
 		public Wall(string FileName)
 		{
+			sign = 'o';
+			color = ConsoleColor.Red;
 			for (int i = 0; i < 50; ++i)
 				for (int j = 0; j < 50; ++j)
 					u[i, j] = 0;
@@ -35,17 +33,6 @@ namespace Snake
 			{
 				u[p.x, p.y] = 1;
 			}
-		}
-		public void Draw()
-		{
-			//Console.Clear();
-			Console.ForegroundColor = color;
-			foreach (Point p in body)
-			{
-				Console.SetCursorPosition(p.x, p.y);
-				Console.Write(sign);
-			}
-			//Console.ForegroundColor = ConsoleColor.Red;
 		}
 	}
 }

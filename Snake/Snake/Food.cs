@@ -1,22 +1,19 @@
 ﻿using System;
+using System.IO;
 namespace Snake
 {
-	public class Food
+	public class Food : Fucntions
 	{
-		public int x, y;
-		public char sign = '+';
 		public Food()
 		{
 			Random rnd = new Random(DateTime.Now.Millisecond);
 			int mod = 19;
-			x = rnd.Next(mod);
-			y = rnd.Next(mod);
-		}
-		public void Draw()
-		{
-			Console.SetCursorPosition(x, y);
-			Console.ForegroundColor = ConsoleColor.Green;
-			Console.Write(sign);
+			int x = rnd.Next(mod);
+			int y = rnd.Next(mod);
+			sign = '+';
+			color = ConsoleColor.Green;
+			body = new System.Collections.Generic.List<Point>();
+			body.Add(new Point (x, y));
 		}
 	}
 }

@@ -50,10 +50,11 @@ namespace Snake
 			Console.SetCursorPosition(10, 10);
 			Console.WriteLine("Welcome BRO");
 			Console.WriteLine("      -----> SNAKE <----");
+
 			Wall wall = new Wall("lvl1.txt");
 			Snake snake = new Snake();
 			Food food = new Food();
-			while (snake.u[food.x, food.y] == 1 || wall.u[food.x, food.y] == 1)
+			while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
 				food = new Food();
 			int cnt = 1, cnt2 = 1;
 			int Max = 1;
@@ -73,17 +74,17 @@ namespace Snake
 					Game_Over(cnt, Max);
 					snake = new Snake ();
 					food = new Food();
-					while (snake.u[food.x, food.y] == 1 || wall.u[food.x, food.y] == 1)
+					while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
 								food = new Food();
 					cnt = 1;
 					cnt2 = 1;
 				}
 				// adding points 
-				else if (food.x == snake.body[0].x && food.y == snake.body[0].y)
+				else if (food.body[0].x == snake.body[0].x && food.body[0].y == snake.body[0].y)
 				{
 					snake.body.Add(new Point(0, 0));
 					food = new Food();
-					while (snake.u[food.x, food.y] == 1 || wall.u[food.x, food.y] == 1)
+					while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
 						food = new Food();
 					++cnt;
 					++cnt2;
@@ -104,7 +105,7 @@ namespace Snake
 						food = new Food();
 						while (true)
 						{
-							if (snake.u[food.x, food.y] == 1 || wall.u[food.x, food.y] == 1)
+							if (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
 								food = new Food();
 							else
 								break;

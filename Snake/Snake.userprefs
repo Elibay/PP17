@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{43682D57-B56E-4BE0-9BEE-0FB701DC9B20}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Snake/Snake.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Snake/WSSnake.cs">
     <Files>
-      <File FileName="Snake/Program.cs" Line="67" Column="19" />
-      <File FileName="Snake/Food.cs" Line="11" Column="14" />
-      <File FileName="Snake/Snake.cs" Line="42" Column="12" />
+      <File FileName="Snake/Program.cs" Line="1" Column="14" />
+      <File FileName="Snake/Food.cs" Line="13" Column="15" />
+      <File FileName="Snake/Snake.cs" Line="18" Column="35" />
+      <File FileName="Snake/Fucntions.cs" Line="9" Column="29" />
+      <File FileName="Snake/WSSnake.cs" Line="12" Column="15" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />

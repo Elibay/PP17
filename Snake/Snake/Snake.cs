@@ -4,15 +4,13 @@ using System.Collections.Generic;
 
 namespace Snake
 {
-	public class Snake
+	public class Snake : Fucntions
 	{
-		public List <Point> body;
-		public char sign = '*';
-		public ConsoleColor color;
 		public int GM;
 		public int[,] u = new int[50, 50];
 		public Snake()
 		{
+			sign = '*';
 			body = new List<Point>();
 			body.Add(new Point(10, 10));
 			color = ConsoleColor.Yellow;
@@ -42,15 +40,6 @@ namespace Snake
 			if (u[body[0].x, body[0].y] == 1)
 				GM = 1;
 			u[body[0].x, body[0].y] = 1;
-		}
-		public void Draw()
-		{
-			Console.ForegroundColor = color;
-			foreach (Point p in body)
-			{
-				Console.SetCursorPosition(p.x, p.y);
-				Console.Write(sign);
-			}
 		}
 	}
 }
