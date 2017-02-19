@@ -15,6 +15,19 @@ namespace Snake
 			body.Add(new Point(10, 10));
 			color = ConsoleColor.Yellow;
 		}
+		public void Move()
+		{
+			ConsoleKeyInfo pressed = Console.ReadKey();
+			Erase();
+			if (pressed.Key == ConsoleKey.UpArrow)
+				Move(0, -1);
+			if (pressed.Key == ConsoleKey.DownArrow)
+				Move(0, 1);
+			if (pressed.Key == ConsoleKey.RightArrow)
+				Move(1, 0);
+			if (pressed.Key == ConsoleKey.LeftArrow)
+				Move(-1, 0);
+		}
 		public void Move(int dx, int dy)
 		{
 			for (int i = 0; i < 50; ++i)
@@ -40,6 +53,11 @@ namespace Snake
 			if (u[body[0].x, body[0].y] == 1)
 				GM = 1;
 			u[body[0].x, body[0].y] = 1;
+		}
+		public void Game_Over(Wall wall)
+		{
+			if (wall.u[body[0].x, body[0].y] == 1)
+				GM = 1;
 		}
 	}
 }

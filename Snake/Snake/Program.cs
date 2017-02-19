@@ -7,31 +7,16 @@ namespace Snake
 {
 	class MainClass
 	{
-		// Moving function 
-		public static void Move(ConsoleKeyInfo pressed, Snake snake)
-		{
-			if (pressed.Key == ConsoleKey.UpArrow)
-				snake.Move(0, -1);
-			if (pressed.Key == ConsoleKey.DownArrow)
-				snake.Move(0, 1);
-			if (pressed.Key == ConsoleKey.RightArrow)
-				snake.Move(1, 0);
-			if (pressed.Key == ConsoleKey.LeftArrow)
-				snake.Move(-1, 0);
-		}
 		// Game Over function 
 		public static void Game_Over(int cnt, int Max)
 		{
 			Console.Clear();
 			Console.SetCursorPosition(10, 5);
 			Console.WriteLine("GAME OVER");
-
 			Console.SetCursorPosition(10, 6);
-			Console.Write("Your score: ");
-			Console.WriteLine(cnt);
+			Console.WriteLine("Your score: " + cnt);
 			Console.SetCursorPosition(10, 7);
-			Console.Write("Max score: ");
-			Console.WriteLine(Max);
+			Console.WriteLine("Max score: " + Max);
 			Console.SetCursorPosition(10, 8);
 			Console.WriteLine("Repeate?");
 			Console.SetCursorPosition(10, 9);
@@ -48,74 +33,55 @@ namespace Snake
 		public static void Main(string[] args)
 		{
 			Console.SetCursorPosition(10, 10);
-			Console.WriteLine("Welcome BRO");
-			Console.WriteLine("      -----> SNAKE <----");
+			Console.WriteLine("Welcome\n        -----> SNAKE <----");
 
 			Wall wall = new Wall("lvl1.txt");
 			Snake snake = new Snake();
-			Food food = new Food();
-			while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
-				food = new Food();
-			int cnt = 1, cnt2 = 1;
-			int Max = 1;
-			int lvl = 1;
+			Food food = new Food(snake, wall, 1);
+			int cnt = 1, cnt2 = 1, Max = 1, lvl = 1, Cl = 1;
 			while (true)
 			{
-				// reading key
-				ConsoleKeyInfo pressed = Console.ReadKey();
-				Move(pressed, snake);
-				if (pressed.Key == ConsoleKey.Escape)
-					break;
-				// Checking Game Over or not
-				if (wall.u[snake.body[0].x, snake.body[0].y] == 1)
-					snake.GM = 1;
+				snake.Move();
+				food.Erase();
+				snake.Game_Over(wall);
 				if (snake.GM == 1)
 				{
+					Console.Clear();
 					Game_Over(cnt, Max);
-					snake = new Snake ();
-					food = new Food();
-					while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
-								food = new Food();
-					cnt = 1;
-					cnt2 = 1;
+					snake = new Snake();
+					food = new Food(snake, wall, 1);
+					cnt = 1; cnt2 = 1; Cl = 1;
 				}
-				// adding points 
 				else if (food.body[0].x == snake.body[0].x && food.body[0].y == snake.body[0].y)
 				{
-					snake.body.Add(new Point(0, 0));
-					food = new Food();
-					while (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
-						food = new Food();
-					++cnt;
-					++cnt2;
+					snake.body.Add(new Point(food.body[0].x, food.body[0].y));
+					food = new Food(snake, wall, 1);
+					++cnt;++cnt2;
 				}
 				if (Max < cnt)
 					Max = cnt;
-				if (cnt2 == 10)
+				if (cnt2 % 10 == 0 && cnt2 <= 40)
 				{
-					// changing levels
 					if (lvl == 1)
 						wall = new Wall("lvl2.txt");
 					else if (lvl == 2)
 						wall = new Wall("lvl3.txt");
-					lvl++;
+					lvl ++;
 					if (lvl < 4)
 					{
 						snake = new Snake();
-						food = new Food();
-						while (true)
-						{
-							if (snake.u[food.body[0].x, food.body[0].y] == 1 || wall.u[food.body[0].x, food.body[0].y] == 1)
-								food = new Food();
-							else
-								break;
-						}
+						food = new Food(snake, wall, 1);
 					}
 					cnt2 = 1;
+					Cl = 1;
 				}
 				// -> Print Snake
-				Console.Clear();
-				wall.Draw();
+				if (Cl == 1)
+				{
+					Console.Clear();
+					wall.Draw();
+					Cl = 0;
+				}
 				snake.Draw();
 				food.Draw();
 				Console.SetCursorPosition(40, 10);
@@ -124,7 +90,7 @@ namespace Snake
 				Console.SetCursorPosition(40, 11);
 				Console.Write("Max score: ");
 				Console.WriteLine(Max);
-				Console.SetCursorPosition (50, 20);
+				Console.SetCursorPosition(50, 20);
 				// <- 
 			}
 		}
