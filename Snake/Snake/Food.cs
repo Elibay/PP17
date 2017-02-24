@@ -9,19 +9,23 @@ namespace Snake
 			int mod = 19;
 			int x = rnd.Next(mod);
 			int y = rnd.Next(mod);
-			while (snake.u[x, y] == 1 || wall.u[x, y] == 1 || u[x, y] == 1)
+			int b = 1;
+			while (b == 1)
 			{
 				x = rnd.Next(mod);
 				y = rnd.Next(mod);
+				b = 0;
+				for (int i = wall.body.Count - 1; i >= 0; --i)
+					if (x == wall.body[i].x && y == wall.body[i].y)
+						b = 1;
+				for (int i = snake.body.Count - 1; i >= 0; --i)
+					if (x == snake.body[i].x && y == snake.body[i].y)
+						b = 1;
 			}
-			u[x, y] = 1;
 			return new Point(x, y);
 		}
 		public Food(Snake snake, Wall wall, int cnt)
 		{
-			for (int i = 0; i < 50; ++i)
-				for (int j = 0; j < 50; ++j)
-					u[i, j] = 0;
 			sign = '+';
 			color = ConsoleColor.Green;
 			body = new System.Collections.Generic.List<Point>();

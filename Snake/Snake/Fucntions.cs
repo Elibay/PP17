@@ -4,7 +4,6 @@ namespace Snake
 {
 	public class Fucntions
 	{
-		public int[,] u = new int[50, 50];
 		public List<Point> body;
 		public char sign;
 		public ConsoleColor color;
