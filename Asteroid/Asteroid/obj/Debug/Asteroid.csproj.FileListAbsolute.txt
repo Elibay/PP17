@@ -1,0 +1,18 @@
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\bin\Debug\Asteroid.exe.config
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\bin\Debug\Asteroid.exe
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\bin\Debug\Asteroid.pdb
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.Form1.resources
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.Properties.Resources.resources
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.csproj.GenerateResource.Cache
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.exe
+C:\Users\Elibay\documents\visual studio 2017\Projects\Asteroid\Asteroid\obj\Debug\Asteroid.pdb
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\bin\Debug\Asteroid.exe.config
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\bin\Debug\Asteroid.exe
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\bin\Debug\Asteroid.pdb
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.csprojResolveAssemblyReference.cache
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.Form1.resources
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.Properties.Resources.resources
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.csproj.GenerateResource.Cache
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.exe
+C:\Users\Elibay\Documents\123\Asteroid\Asteroid\obj\Debug\Asteroid.pdb

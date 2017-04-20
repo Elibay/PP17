@@ -1,0 +1,27 @@
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe.config
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Form1.resources
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Properties.Resources.resources
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csproj.GenerateResource.Cache
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\bin\Debug\PaintSimple.pdb
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.exe
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.pdb
+c:\users\a.akshabaev\documents\visual studio 2013\Projects\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csprojResolveAssemblyReference.cache
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe.config
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\bin\Debug\PaintSimple.pdb
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csprojResolveAssemblyReference.cache
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Form1.resources
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Properties.Resources.resources
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csproj.GenerateResource.Cache
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.exe
+C:\Users\Elibay\Documents\PTW11G2\PaintSimple\PaintSimple\obj\Debug\PaintSimple.pdb
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe.config
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\bin\Debug\PaintSimple.exe
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\bin\Debug\PaintSimple.pdb
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csprojResolveAssemblyReference.cache
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Form1.resources
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.Properties.Resources.resources
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.csproj.GenerateResource.Cache
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.exe
+C:\Users\Elibay\Documents\123\PaintSimple\PaintSimple\obj\Debug\PaintSimple.pdb
